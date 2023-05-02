@@ -261,6 +261,7 @@ public class SwiftImagesPickerPlugin: NSObject, FlutterPlugin {
         }
         dir.updateValue(imagePath, forKey: "path");
         dir.updateValue(imagePath, forKey: "thumbPath");
+        dir.updateValue("image", forKey: "resourceType");
         do {
             let attr = try FileManager.default.attributesOfItem(atPath: imagePath);
             let fileSize = attr[FileAttributeKey.size] as! UInt64;
@@ -282,6 +283,7 @@ public class SwiftImagesPickerPlugin: NSObject, FlutterPlugin {
                 let path = (urlStr as NSString).substring(from: 7);
                 dir.updateValue(path, forKey: "path");
                 dir.updateValue(path, forKey: "thumbPath");
+                dir.updateValue("gif", forKey: "resourceType");
                 do {
                     let size = try url.resourceValues(forKeys: [.fileSizeKey]).fileSize;
                     dir.updateValue((size ?? 0) as Int, forKey: "size");
@@ -300,7 +302,8 @@ public class SwiftImagesPickerPlugin: NSObject, FlutterPlugin {
         let urlStr = url.absoluteString;
         let path = (urlStr as NSString).substring(from: 7);
         dir.updateValue(path, forKey: "path");
-        
+        dir.updateValue("video", forKey: "resourceType");
+
         // 获取视频封面图
         if let thumb = self.getVideoThumbPath(url: path) {
             let thumbData = thumb.jpegData(compressionQuality: 1); // 转Data

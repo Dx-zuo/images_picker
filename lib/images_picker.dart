@@ -48,6 +48,7 @@ class ImagesPicker {
             path: image["path"],
             size: ((image["size"] ?? 0) / 1024).toDouble(),
             thumbPath: image["thumbPath"],
+            resourceType: image["resourceType"],
           );
           return media;
         }).toList();
@@ -96,6 +97,7 @@ class ImagesPicker {
             path: image["path"],
             size: ((image["size"] ?? 0) / 1024).toDouble(),
             thumbPath: image["thumbPath"],
+            resourceType: image["resourceType"],
           );
           return media;
         }).toList();
@@ -194,9 +196,11 @@ class Media {
   /// 文件大小
   double size;
 
+  String resourceType;
   Media({
     required this.path,
     this.thumbPath,
     required this.size,
+    required this.resourceType,
   });
 }
