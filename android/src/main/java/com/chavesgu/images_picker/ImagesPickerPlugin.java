@@ -264,7 +264,7 @@ public class ImagesPickerPlugin implements FlutterPlugin, MethodCallHandler, Act
                 thumbPath = createVideoThumb(path);
               }
               map.put("thumbPath", thumbPath);
-
+              map.put("resourceType", media.getMimeType());
               int size = getFileSize(path);
               map.put("size", size);
 
