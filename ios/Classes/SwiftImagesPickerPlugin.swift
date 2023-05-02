@@ -450,10 +450,10 @@ public class SwiftImagesPickerPlugin: NSObject, FlutterPlugin {
         //    configuration.style = .externalAlbumList;
         configuration.allowTakePhotoInLibrary = false;
         configuration.allowSelectLivePhoto = true
-        configuration.allowMixSelect = true;
         configuration.allowEditImage = true;
         configuration.allowEditVideo = true;
         configuration.saveNewImageAfterEdit = false;
+        configuration.allowMixSelect = false
         if pickType=="PickType.video" {
             configuration.allowSelectImage = false;
             configuration.allowSelectVideo = true;
